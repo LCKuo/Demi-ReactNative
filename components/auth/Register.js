@@ -6,6 +6,8 @@ import {
     createUserWithEmailAndPassword
 } from 'firebase/auth';
 
+import { doc, setDoc, set, getFirestore, collection } from 'firebase/firestore'
+
 
 export default function Regist() {
     const _auth = getAuth()
@@ -14,8 +16,15 @@ export default function Regist() {
     const [pwd, setPwd] = React.useState("")
 
     function onSignUp() {
+        const firestore = getFirestore();
+
         createUserWithEmailAndPassword(_auth, email, pwd)
             .then((result) => {
+                console.log("uid : " + _auth.currentUser.uid)
+                setDoc(doc(firestore, "users", _auth.currentUser.uid), {
+                    email,
+                    name
+                });
                 console.log(result)
             })
             .catch((error) => {
