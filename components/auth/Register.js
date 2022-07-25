@@ -6,7 +6,7 @@ import {
     createUserWithEmailAndPassword
 } from 'firebase/auth';
 
-import { doc, setDoc, set, getFirestore, collection } from 'firebase/firestore'
+import { doc, setDoc, getFirestore, getDoc } from 'firebase/firestore'
 
 
 export default function Regist() {
@@ -20,12 +20,10 @@ export default function Regist() {
 
         createUserWithEmailAndPassword(_auth, email, pwd)
             .then((result) => {
-                console.log("uid : " + _auth.currentUser.uid)
                 setDoc(doc(firestore, "users", _auth.currentUser.uid), {
                     email,
                     name
                 });
-                console.log(result)
             })
             .catch((error) => {
                 console.log(error)
@@ -38,7 +36,6 @@ export default function Regist() {
             <TextInput
                 placeholder='Name'
                 onChangeText={setName}
-
             />
 
             <TextInput
