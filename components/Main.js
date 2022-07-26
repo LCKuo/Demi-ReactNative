@@ -4,6 +4,16 @@ import { connect } from 'react-redux/es/exports';
 import { bindActionCreators } from 'redux';
 import { fetchUser } from '../redux/actions';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+//https://oblador.github.io/react-native-vector-icons/
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+const Tab = createBottomTabNavigator();
+
+import FeedScreen from './main/feed';
+import ProfileScreen from './main/Profile';
+import AddScreen from './main/Add';
+
+
 export class Main extends Component {
     componentDidMount() {
         this.props.fetchUser()
@@ -12,9 +22,23 @@ export class Main extends Component {
         const { currentUser } = this.props;
         console.log(currentUser)
         return (
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-                <Text>User loggined</Text>
-            </View>
+            <Tab.Navigator>
+                <Tab.Screen name="Feed" component={FeedScreen} options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="home" color={color} size={size} />
+                    ),
+                }} />
+                <Tab.Screen name="Add" component={AddScreen} options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="camera" color={color} size={size} />
+                    ),
+                }} />
+                <Tab.Screen name="Profile" component={ProfileScreen} options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="account-circle" color={color} size={size} />
+                    ),
+                }} />
+            </Tab.Navigator>
         )
     }
 }
