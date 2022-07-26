@@ -32,7 +32,6 @@ export default function Regist() {
     }
     return (
         <View>
-            <h1>Reg</h1>
             <TextInput
                 placeholder='Name'
                 onChangeText={setName}
@@ -53,8 +52,6 @@ export default function Regist() {
                 onPress={onSignUp}
                 title="sign up"
             />
-
-            <h1>{email}</h1>
         </View>
     )
 

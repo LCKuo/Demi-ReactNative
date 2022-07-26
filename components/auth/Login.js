@@ -25,8 +25,6 @@ export default function Login() {
     }
     return (
         <View>
-            <h1>Login</h1>
-
             <TextInput
                 placeholder='email'
                 onChangeText={setEmail}
@@ -42,8 +40,6 @@ export default function Login() {
                 onPress={onLogin}
                 title="Login"
             />
-
-            <h1>{email}</h1>
         </View>
     )
 

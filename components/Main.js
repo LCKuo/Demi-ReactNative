@@ -9,7 +9,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
-import FeedScreen from './main/feed';
+import FeedScreen from './main/Feed';
 import ProfileScreen from './main/Profile';
 import AddScreen from './main/Add';
 
