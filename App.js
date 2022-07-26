@@ -3,18 +3,22 @@ import { Component, React } from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LandingScreen from './components/auth/Landing';
-import LoginScreen from './components/auth/Login';
-import RegisScreen from './components/auth/Register';
-
-
 import { initializeApp } from 'firebase/app';
-
 import {
   getAuth,
   onAuthStateChanged,
 } from 'firebase/auth';
 
+import { Provider } from 'react-redux'
+import { legacy_createStore as createStore, applyMiddleware } from 'redux'
+import rootReducer from './redux/reducers'
+import thunk from 'redux-thunk';
+const store = createStore(rootReducer, applyMiddleware(thunk))
+
+import LandingScreen from './components/auth/Landing';
+import LoginScreen from './components/auth/Login';
+import RegisScreen from './components/auth/Register';
+import MainScreen from './components/Main';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA8oLbM7gZhmfcrvBkaH3veddoVRR2w278",
@@ -81,9 +85,9 @@ export class App extends Component {
       )
     } else {
       return (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Text>User loggined</Text>
-        </View>
+        <Provider store={store}>
+          <MainScreen />
+        </Provider>
       )
     }
 
