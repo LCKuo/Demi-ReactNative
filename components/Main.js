@@ -25,18 +25,21 @@ export class Main extends Component {
             <Tab.Navigator>
                 <Tab.Screen name="Feed" component={FeedScreen} options={{
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="home" color={color} size={size} />
+                        <MaterialCommunityIcons name="home" color={color} size={26} />
                     ),
+                    headerShown: false,
                 }} />
                 <Tab.Screen name="Add" component={AddScreen} options={{
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="camera" color={color} size={size} />
+                        <MaterialCommunityIcons name="camera" color={color} size={26} />
                     ),
+                    headerShown: false,
                 }} />
                 <Tab.Screen name="Profile" component={ProfileScreen} options={{
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="account-circle" color={color} size={size} />
+                        <MaterialCommunityIcons name="account-circle" color={color} size={26} />
                     ),
+                    headerShown: false,
                 }} />
             </Tab.Navigator>
         )
