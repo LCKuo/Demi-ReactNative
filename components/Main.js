@@ -21,9 +21,7 @@ const EmptyScreen = () => {
     return (null)
 }
 export class Main extends Component {
-    componentDidMount() {
-        this.props.fetchUser()
-    }
+
     render() {
         return (
             <Tab.Navigator initalRouteName="Feed" labeled={false}>
@@ -58,10 +56,4 @@ export class Main extends Component {
 }
 
 
-const mapStateToPorps = (store) => ({
-    currentUser: store.userState.currentUser
-})
-
-const mapDispatchProps = (dispatch) => bindActionCreators({ fetchUser }, dispatch)
-
-export default connect(mapStateToPorps, mapDispatchProps)(Main);
+export default Main;
