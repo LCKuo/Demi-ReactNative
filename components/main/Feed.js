@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native-web'
+import { View, Text } from 'react-native'
 
 export default function Feed() {
     return (
-        <View>
-            <Text>Feed</Text>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Home</Text>
         </View>
     )
 }
