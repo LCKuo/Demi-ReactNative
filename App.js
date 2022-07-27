@@ -19,6 +19,9 @@ import LandingScreen from './components/auth/Landing';
 import LoginScreen from './components/auth/Login';
 import RegisScreen from './components/auth/Register';
 import MainScreen from './components/Main';
+import AddScreen from './components/main/Add';
+import 'react-native-gesture-handler';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyA8oLbM7gZhmfcrvBkaH3veddoVRR2w278",
@@ -89,6 +92,7 @@ export class App extends Component {
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Landing">
               <Stack.Screen name="Main" component={MainScreen} options={{ headerShown: false }} />
+              <Stack.Screen name="Add" component={AddScreen} />
             </Stack.Navigator>
           </NavigationContainer>
         </Provider>
